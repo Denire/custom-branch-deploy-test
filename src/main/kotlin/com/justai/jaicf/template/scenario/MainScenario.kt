@@ -47,15 +47,12 @@ object MainScenario : Scenario() {
             }
 
             action(caila) {
-                activator.topIntent.answer?.let { reactions.say(it) } ?: reactions.go("/fallback")
+                activator.topIntent.answer?.let { reactions.say(it) }
             }
         }
 
         fallback {
-            reactions.sayRandom(
-                "Sorry, I didn't get that...",
-                "Sorry, could you repeat please?"
-            )
+            reactions.say("This is callback from custom branch")
         }
     }
 }
